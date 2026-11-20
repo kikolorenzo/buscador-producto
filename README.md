@@ -36,3 +36,5 @@ python scripts/refine.py
 `build_catalog.py` regenera un índice provisional; `refine.py` añade ejemplos contrastados y previsualizaciones. Las correcciones y el control de calidad deben ampliarse antes del uso operativo. Los archivos PDF originales **no están incluidos en el ZIP** para evitar redistribuirlos involuntariamente.
 
 Las fotografías de los ocho ejemplos contrastados se generan mediante `python scripts/sample_photos.py` después de los otros dos scripts; no sustituyen la revisión de todas las referencias.
+
+Cuando una referencia individual de **bidón de 5 l** y su variante `C` de **caja de 4 bidones de 5 l** correspondan al mismo producto, ejecutar `python scripts/sync_packaging_photos.py` para compartir la fotografía disponible entre ambos formatos y actualizar el JSON, el CSV y las estadísticas.
