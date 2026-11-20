@@ -150,10 +150,10 @@ main{
 }
 .filters button:hover{transform:translateY(-1px);border-color:#bdb5dc}
 .filters button.active{
- border-color:transparent;
- background:linear-gradient(120deg,#2336aa,#8e2c9b 58%,#df277a);
+ border-color:#293ead;
+ background:#293ead;
  color:#fff;
- box-shadow:0 7px 18px #4939a02e;
+ box-shadow:0 7px 18px #293ead2e;
 }
 .toolbar{margin:20px 2px 15px}
 .toolbar .count{color:#242852;font-size:15px}
@@ -180,37 +180,32 @@ main{
 .details-btn{
  border:0;
  border-radius:10px;
- background:linear-gradient(120deg,#293ead,#7a329e 68%,#cf2b81);
+ background:#293ead;
  color:#fff;
  padding:9px 12px;
- box-shadow:0 7px 16px #49369a2b;
+ box-shadow:0 7px 16px #293ead2b;
  transition:transform .18s,box-shadow .18s;
 }
-.details-btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px #49369a3d}
+.details-btn:hover{transform:translateY(-1px);background:#20328f;box-shadow:0 10px 22px #293ead3d}
 .pager button,.source-button{
  border-color:#dad7e9;
  color:#343f9e;
  box-shadow:0 4px 14px #302d570c;
 }
 .source-button.active{
- border-color:transparent;
- background:linear-gradient(120deg,#273bb0,#a12e93);
+ border-color:#293ead;
+ background:#293ead;
  color:#fff;
 }
 .overlay{background:#101847c9;backdrop-filter:blur(6px)}
 .modal{
- border:1px solid #ffffff;
+ border:1px solid #e3e1eb;
  border-radius:22px;
  box-shadow:0 30px 90px #090e3d70;
 }
+.modal:focus{outline:none}
 .modal::before{
- content:"";
- display:block;
- position:absolute;
- inset:0 0 auto;
- height:5px;
- border-radius:22px 22px 0 0;
- background:linear-gradient(90deg,#263aad,#df1f79,#ff755b,#ffbd66);
+ content:none;
 }
 .close{background:#f0eef6;color:#34385d}
 .meta{border-color:#ebe8f1;border-radius:13px;background:#faf9fc}
