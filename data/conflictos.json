@@ -1,0 +1,1394 @@
+[
+  {
+    "codigo": "ADE100X",
+    "propuesto": "P IE Z 120 cm NEGROAF2001",
+    "alternativas": [
+      "P IE Z 120 cm NARAN JA",
+      "P IE Z 120 cm G R IS",
+      "P IE Z 120 cm R O JO",
+      "P IE Z 120 cm MARRÓ"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "marron",
+        "pagina": 65
+      }
+    ]
+  },
+  {
+    "codigo": "AL0028",
+    "propuesto": "CARRO DE SERVICIO EXTERIOR MODELO 640/B",
+    "alternativas": [
+      "Rueda neumática Trasera carro",
+      "Tam año (cm ) Para carros"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 19
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 147
+      }
+    ]
+  },
+  {
+    "codigo": "AL0033",
+    "propuesto": "CARRO DE SERVICIO MODELO 10",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "BANDEJAS DE POLIPROPILENO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 5
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 27
+      }
+    ]
+  },
+  {
+    "codigo": "AL0034",
+    "propuesto": "CARRO DE SERVICIO MODELO 20",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "TUBO LATERAL /35/38 CÓ D"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 6
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 27
+      }
+    ]
+  },
+  {
+    "codigo": "AL0086",
+    "propuesto": "Con chasis a tornillo con freno Rueda protección inferior para",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "CARRO CO N"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 92
+      }
+    ]
+  },
+  {
+    "codigo": "AL0087",
+    "propuesto": "Con chasis a tornillo con freno Rueda protección inferior para",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "TA PA G R IS",
+      "CARRO CO N"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 92
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 110
+      }
+    ]
+  },
+  {
+    "codigo": "AL0088",
+    "propuesto": "Con chasis a tornillo con freno Rueda protección inferior para",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "CARRO CO N"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 92
+      }
+    ]
+  },
+  {
+    "codigo": "AL0090",
+    "propuesto": "Con chasis a tornillo con freno Rueda protección inferior para",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "CARRO CO N"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 92
+      }
+    ]
+  },
+  {
+    "codigo": "AL1001",
+    "propuesto": "Tam año (cm ) Para carros",
+    "alternativas": [
+      "Lona azul Lona beige",
+      "Lona azul"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 5
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 11
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 12
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 18
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      }
+    ]
+  },
+  {
+    "codigo": "AL1018",
+    "propuesto": "Tam año (cm ) Para carros",
+    "alternativas": [
+      "Lona b eige",
+      "Lona beige"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 9
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 10
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      }
+    ]
+  },
+  {
+    "codigo": "AL8000",
+    "propuesto": "Con chasis a tornillo con freno Rueda protección inferior para",
+    "alternativas": [
+      "CARRO D E SERVICIO LARGO D E BANDEJA 8 0 c m",
+      "Tam año (cm ) Para carros"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 10
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      }
+    ]
+  },
+  {
+    "codigo": "AL9635",
+    "propuesto": "Rueda con chasis fijo Rueda con chasis m óvil",
+    "alternativas": [
+      "Rueda fija Rueda giratoria",
+      "Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 9
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 10
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 11
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 18
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 45
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 48
+      }
+    ]
+  },
+  {
+    "codigo": "AL9636",
+    "propuesto": "Rueda con chasis fijo Rueda con chasis m óvil",
+    "alternativas": [
+      "Rueda fija Rueda giratoria",
+      "Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm Ø 160 mm"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 9
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 10
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 11
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 18
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 45
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 48
+      }
+    ]
+  },
+  {
+    "codigo": "AT2240L",
+    "propuesto": "ASPIRADOR DE POLVO ELÉCTRICO TRIFÁSICO ATEX",
+    "alternativas": [
+      "Volumen del tanque (l)",
+      "Nivel de ruido (dB)",
+      "400-3/50"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 30
+      }
+    ]
+  },
+  {
+    "codigo": "BE2009",
+    "propuesto": "D ESC RIPC IÓ N Pedal contenedor 90 l",
+    "alternativas": [
+      "PEDAL PARA",
+      "S U LO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "marron",
+        "pagina": 126
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 127
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 131
+      }
+    ]
+  },
+  {
+    "codigo": "BK0035",
+    "propuesto": "Kit 2 ruedas traseras + eje Para carro",
+    "alternativas": [
+      "Tam año (cm ) Para carros",
+      "CARRO D E LIMPIEZA"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 62
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 147
+      }
+    ]
+  },
+  {
+    "codigo": "BK0094",
+    "propuesto": "CONTENEDOR BASCULANTE M U LT IUSO",
+    "alternativas": [
+      "Rueda trasera carro basculante",
+      "Rueda carro basculante"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 54
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 147
+      }
+    ]
+  },
+  {
+    "codigo": "BK9015",
+    "propuesto": "DISPONIBLE CON PUERTA CON CIERRE Y CON PANELES Rueda con casquillo",
+    "alternativas": [
+      "Rueda con casquillo",
+      "Ø 100 mm Ø 100 mm Ø 100 mm Ø 100 mm Ø 100 mm Ø 100 mm Ø 100 mm Ø 100 mm"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 40
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 41
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 42
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 44
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      }
+    ]
+  },
+  {
+    "codigo": "CK100U",
+    "propuesto": "CUBRECALZADO PLÁST IC O PA uds",
+    "alternativas": [
+      "DELAN TA L PLÁST IC O PA uds",
+      "MANGU IT O PLÁST IC O PA uds",
+      "B ATA PLÁST IC A PA uds",
+      "RED D E P E LO PA uds"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "verde",
+        "pagina": 142
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 113
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 26
+      }
+    ]
+  },
+  {
+    "codigo": "CM9522",
+    "propuesto": "Rueda delantera con chasis m óvil Rueda trasera neum ática",
+    "alternativas": [
+      "Ø 200 mm Ø 200 mm Ø 200 mm Ø 200 mm Ø 200 mm Ø 200 mm Ø 200 mm Ø 200 mm",
+      "Rueda con chasis m óvil a tornillo"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 8
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 19
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 147
+      }
+    ]
+  },
+  {
+    "codigo": "CM9527",
+    "propuesto": "Rueda con chasis m óvil Rueda con chasis m óvil y freno",
+    "alternativas": [
+      "Rueda con chasis giratorio a tornillo",
+      "Ø 125 mm Ø 125 mm Ø 125 mm Ø 125 mm Ø 125 mm Ø 125 mm Ø 125 mm Ø 125 mm",
+      "Rueda con chasis m óvil",
+      "Rueda con chasis"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 7
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 12
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 21
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 22
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 24
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 25
+      }
+    ]
+  },
+  {
+    "codigo": "CS700B",
+    "propuesto": "CARGADOR DE BATERÍAS",
+    "alternativas": [
+      "BARREDORA (batería)",
+      "Superficie de filtración (m2)",
+      "Productividad (m2/h)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 43
+      }
+    ]
+  },
+  {
+    "codigo": "CS700H",
+    "propuesto": "BARREDORA (gasolina)",
+    "alternativas": [
+      "Superficie de filtración (m2)",
+      "Productividad (m2/h)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 43
+      }
+    ]
+  },
+  {
+    "codigo": "CW0002",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Cofre batería Cargador baterí",
+      "Plato de gom a Cofre batería"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 73
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 75
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "CW0004",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Baterías ácido (4) Baterías gel (4)",
+      "Kit luces Baterías ácido (4)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 70
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 72
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "CW0006",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Baterías ácido (2) Baterías gel (2)",
+      "Cepillo central Cepillo lateral",
+      "Kit labios Cepillos nylon (2)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 42
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 67
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 69
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "CW0021",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Baterías ácido (4) Baterías gel (4)",
+      "Kit luces Baterías ácido (4)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 70
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 72
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "CW0025",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Baterías ácido (2) Baterías gel (2)",
+      "Cepillo central Cepillo lateral",
+      "Kit labios Cepillos nylon (2)"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 42
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 67
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 69
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "DE100",
+    "propuesto": "Sumergir los vegetales durante 5 minutos y enjuagarlos antes de su uso",
+    "alternativas": [
+      "para ropa de cama y suministros. Dos bolsas plegables de lino litros",
+      "Sop orte y m opa de 45 cm Sop orte y m opa de 75 cm",
+      "Dos bolsas plegables de lino litros para ropa sucia",
+      "Recam bio m opa de 45 cm Recam bio m opa de 75 cm"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "verde",
+        "pagina": 28
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 116
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 138
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 139
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 140
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 13
+      }
+    ]
+  },
+  {
+    "codigo": "DE120L",
+    "propuesto": "Se puede realizar con dos bolsas",
+    "alternativas": [
+      "residuos con alojamiento para",
+      "moldeado. • Juego de tapas de",
+      "completa moldeada C/W",
+      "Por ta sa co"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 17
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 24
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 66
+      }
+    ]
+  },
+  {
+    "codigo": "DE150",
+    "propuesto": "Escoba plana de polipropileno con mezcla de fibras de distintos",
+    "alternativas": [
+      "Mando a distancia. • Bomba psi",
+      "Bomba psi",
+      "MANGO FIJO UNIVERSAL • De aluminio. Doble rosca. • 140 cm"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "verde",
+        "pagina": 111
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 120
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 82
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 91
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 147
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 148
+      }
+    ]
+  },
+  {
+    "codigo": "DE200",
+    "propuesto": "NKU30FF Flexi-Front (FF)",
+    "alternativas": [
+      "NKU31HF Frente Duro (HF)",
+      "NKU32HF Frente Duro (HF)",
+      "NKU30HF Frente Duro (HF)",
+      "NKU31FF 1 bolsa"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 14
+      }
+    ]
+  },
+  {
+    "codigo": "DE600X",
+    "propuesto": "R O LLO 120 cm NEGROAF2001C",
+    "alternativas": [
+      "R O LLO 120 cm AZULAF2005C",
+      "R O LLO 120 cm OCREAF2004C",
+      "R O LLO 120 cm NARAN JA",
+      "R O LLO 120 cm G R IS"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "marron",
+        "pagina": 65
+      }
+    ]
+  },
+  {
+    "codigo": "DE7050",
+    "propuesto": "D iá m e tro cm",
+    "alternativas": [
+      "ASPIRADOR DE POLVO CA 3.100 SE",
+      "ASPIRADORES D E POLVO",
+      "ASPIRADOR DE POLVO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 26
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 27
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 28
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 29
+      }
+    ]
+  },
+  {
+    "codigo": "EN1276",
+    "propuesto": "bactericida , actividad fungicida , actividad fungicida , actividad fungicida",
+    "alternativas": [
+      "D ise ñ adaspa ra ca p tu ra r la humedad y to d o tip o d e su cie dad",
+      "Cump le la sno rm asUNE"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "verde",
+        "pagina": 25
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 44
+      },
+      {
+        "catalogo": "marron",
+        "pagina": 67
+      }
+    ]
+  },
+  {
+    "codigo": "FT0006",
+    "propuesto": "Tam año (cm ) Para carros",
+    "alternativas": [
+      "Rueda carro Origo Vileda",
+      "CARRO D E LIMPIEZA"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "gris",
+        "pagina": 26
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 70
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      }
+    ]
+  },
+  {
+    "codigo": "YG1007",
+    "propuesto": "Paquete con 10 bolsas Cargador batería",
+    "alternativas": [
+      "1 BATERÍA Y 1 CARGADOR INCLUIDOS",
+      "PAQUETE CON 10 BOLSAS"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 6
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 7
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 10
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 14
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 15
+      }
+    ]
+  },
+  {
+    "codigo": "YG2003",
+    "propuesto": "Kit baterías 36 / C S80 Batería 6 Ah M edia/M R",
+    "alternativas": [
+      "Paquete con 10 bolsas Cargador batería",
+      "Cepillos nylon (2) Platos gom a (2)",
+      "1 BATERÍA Y 1 CARGADOR INCLUIDOS"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 10
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 15
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 56
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 84
+      }
+    ]
+  },
+  {
+    "codigo": "ZE1003",
+    "propuesto": "Kit de cuatro soportes con rueda Para cubo ALEX",
+    "alternativas": [
+      "Con chasis giratorio a tornillo Para cubo",
+      "CUBO DOB LE D E",
+      "PRENSA"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "verde",
+        "pagina": 103
+      },
+      {
+        "catalogo": "verde",
+        "pagina": 104
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 74
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 75
+      },
+      {
+        "catalogo": "gris",
+        "pagina": 145
+      }
+    ]
+  },
+  {
+    "codigo": "ZG0013",
+    "propuesto": "BOQUILLA DE ALTA PRESIÓ",
+    "alternativas": [
+      "HIDROLIMPIADORA MONOFÁSICA",
+      "ACCESORIOS OPCIONALES"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 128
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG0141",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Boquilla de alta presió",
+      "MANGUERA D E"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG0143",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "Conectores manguera Lanza porta boquilla doble",
+      "LIMPIATUBERÍAS"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG0144",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Conectores manguera Lanza porta boquilla doble",
+      "Boquilla de alta presió Lanza limpia bajos P90",
+      "LIMPIATUBERÍAS"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG2019",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "LANZA INOX",
+      "LANZA P70"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 128
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 130
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      }
+    ]
+  },
+  {
+    "codigo": "ZG2027",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Conectores manguera Lanza porta boquilla doble",
+      "Boquilla de alta presió Lanza limpia bajos P90",
+      "LANZA DOBLE"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG2035",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "Boquilla de alta presió Boquilla de alta presió",
+      "Boquilla de alta presió Lanza limpia bajos P90"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9004",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Lanza turbo P70 Ø 055",
+      "LANZA TURBO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 130
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 139
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9005",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Boquilla de alta presió",
+      "CABEZAL"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9008",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "Conectores manguera Lanza porta boquilla doble",
+      "CONECTORES"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9078",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "LANZA P50"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9079",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Conectores manguera Lanza porta boquilla doble",
+      "Boquilla de alta presió Lanza limpia bajos P90",
+      "LANZA LIMPIA"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9080",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Boquilla de alta presió",
+      "KIT ARENADO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9081",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "KIT ARENADO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9084",
+    "propuesto": "Boquilla de alta presió Lanza limpia bajos P90",
+    "alternativas": [
+      "BOQUILLA DE ALTA",
+      "BOQUILLA DE"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 128
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9121",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "Boquilla de alta presió Lanza limpia bajos P90",
+      "LANZA CON"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9646",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza limpia bajos P90",
+      "LANZA PARA"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9875",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Conectores manguera Lanza porta boquilla doble",
+      "LANZA TURBO"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 132
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  },
+  {
+    "codigo": "ZG9963",
+    "propuesto": "M anguera de alta presión 20 m M anguera de alta presión 10 m",
+    "alternativas": [
+      "Boquilla de alta presió Lanza P50 con cepillo rotativo",
+      "Boquilla de alta presió Lanza con cepillo fijo P70",
+      "Boquilla de alta presió Lanza limpia bajos P90"
+    ],
+    "fuentes": [
+      {
+        "catalogo": "rojo",
+        "pagina": 134
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 136
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 138
+      },
+      {
+        "catalogo": "rojo",
+        "pagina": 140
+      }
+    ]
+  }
+]
