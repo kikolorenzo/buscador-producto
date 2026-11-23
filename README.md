@@ -47,3 +47,18 @@ Cuando una referencia individual de **bidón de 5 l** y su variante `C` de **caj
 python scripts/audit_catalog_quality.py
 python scripts/audit_catalog_quality.py --apply
 ```
+
+`scripts/repair_table_titles.py` reconstruye los títulos de las tablas que se
+han revisado visualmente, propaga el nombre del producto a sus variantes de
+envase y elimina falsos códigos creados al unir palabras como «CAJA 700» o
+«Clax 500». Primero puede ejecutarse en modo informe y después aplicar los
+cambios:
+
+```bash
+python scripts/repair_table_titles.py
+python scripts/repair_table_titles.py --apply
+```
+
+El informe detallado se guarda en
+`tmp/pdfs/table-title-repair-report.json`. Tras la revisión actual, el índice
+contiene 3.911 referencias candidatas; 17 entradas espurias fueron retiradas.
