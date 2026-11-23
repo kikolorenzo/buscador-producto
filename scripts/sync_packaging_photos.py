@@ -1,4 +1,4 @@
-"""Comparte fotografías entre un bidón y su caja de cuatro unidades."""
+"""Comparte fotografías entre una referencia individual y su variante de caja."""
 
 from __future__ import annotations
 
@@ -15,18 +15,19 @@ CSV_PATH = ROOT / "data" / "articulos.csv"
 STATS_PATH = ROOT / "data" / "estadisticas.json"
 
 
-def is_individual(row: dict) -> bool:
-    return bool(re.search(r"\bbid[oó]n de 5 l\b", row.get("nombre_propuesto", ""), re.I))
+def product_text(row: dict) -> str:
+    value = f"{row.get('nombre_propuesto', '')} {row.get('presentacion_propuesta', '')}"
+    # El PDF separa a veces palabras por espaciado tipográfico: C aja -> Caja.
+    value = re.sub(r"\bC\s+aja\b", "Caja", value, flags=re.I)
+    value = re.sub(r"\bb\s+otes\b", "botes", value, flags=re.I)
+    return re.sub(r"\s+", " ", value).strip()
 
 
 def is_box(row: dict) -> bool:
-    return bool(
-        re.search(
-            r"\bcaja de 4 bidones de 5 l\b",
-            row.get("nombre_propuesto", ""),
-            re.I,
-        )
-    )
+    # En este índice el sufijo C representa la presentación de caja. Algunos
+    # textos del PDF solo indican «20 packs» o «4 bidones» y omiten la palabra
+    # caja, por lo que la relación de códigos es la señal canónica.
+    return True
 
 
 rows = json.loads(JSON_PATH.read_text("utf-8"))
@@ -35,17 +36,20 @@ updated: list[tuple[str, str, str]] = []
 
 for individual in rows:
     box = by_code.get(individual["codigo"] + "C")
-    if not box or not is_individual(individual) or not is_box(box):
+    # El código base es la unidad y el sufijo C su caja. Algunos títulos
+    # heredados perdieron la palabra «bidón», por lo que la caja es la señal
+    # canónica y no el texto defectuoso del artículo individual.
+    if not box or not is_box(box):
         continue
 
-    source = individual if individual.get("imagenes") else box if box.get("imagenes") else None
+    source = individual if individual.get("imagen_principal") else box if box.get("imagen_principal") else None
     if not source:
         continue
 
     for target in (individual, box):
         before = target.get("imagen_principal")
-        target["imagenes"] = copy.deepcopy(source["imagenes"])
-        target["imagen_principal"] = source.get("imagen_principal") or source["imagenes"][0]["ruta"]
+        target["imagenes"] = copy.deepcopy(source.get("imagenes", []))
+        target["imagen_principal"] = source.get("imagen_principal")
         target["foto_verificada"] = bool(source.get("foto_verificada", False))
         if before != target["imagen_principal"]:
             updated.append((individual["codigo"], box["codigo"], target["imagen_principal"]))

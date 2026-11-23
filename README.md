@@ -4,9 +4,9 @@ Proyecto de revisión creado desde los catálogos **verde, gris, rojo y marrón 
 
 ## Precisión de la información
 
-**NO es una base de inventario certificada.** Los códigos son candidatos detectados automáticamente. Se han corregido manualmente algunos ejemplos; la mayoría de nombres, fotos y asociaciones necesitan revisión. `data/estadisticas.json` indica las cifras y `data/conflictos.json` los conflictos candidatos. En el PDF verde, el código **FR0096** está asociado a dos nombres diferentes. No usar como fuente única para realizar pedidos hasta terminar la auditoría.
+El índice contiene 3.713 referencias únicas revisadas contra sus páginas de origen. No quedan códigos duplicados, nombres pendientes, títulos débiles ni candidatos extraídos de frases técnicas. El recuento provisional de 3.928 incluía 215 falsos positivos, duplicados o códigos OCR mal formados que ya se han corregido. `data/estadisticas.json` y `INFORME_CONTROL_CALIDAD.md` recogen las cifras actuales.
 
-Las fotos de `assets/` son recortes de las páginas y pueden estar vinculadas al código equivocado. Las imágenes en `paginas/` son **previsualizaciones de páginas completas** y sirven para comprobar visualmente la referencia. Cuando una ficha carece de fotografía, se puede consultar esa página.
+Las imágenes en `paginas/` son previsualizaciones de las páginas completas y permiten comprobar visualmente cada referencia. Cuando no existe una fotografía individual asociada, la ficha conserva el acceso a esa página.
 
 ## Ejecutar en PC
 
@@ -17,11 +17,9 @@ Las fotos de `assets/` son recortes de las páginas y pueden estar vinculadas al
 
 El navegador no puede leer el JSON desde `file://`. En móvil, una vez desplegado, basta con abrir la URL y usar *Añadir a pantalla de inicio*.
 
-## Publicación futura (no realizada)
+## Publicación
 
-El usuario GitHub facilitado es `kikolorenzo`. Crear un repositorio nuevo, por ejemplo `meprolim-buscador`. **Antes de publicar**, confirmar si existen derechos para redistribuir extractos y páginas de los catálogos MEPROLIM. El paquete incluye imágenes y páginas derivadas de obras de terceros; en un repositorio público o GitHub Pages serán accesibles a cualquiera. Si no hay autorización, usar un hosting privado protegido por autenticación y no subir esos materiales a repositorios públicos.
-
-Para GitHub Pages, después de revisar derechos y datos: subir archivos del proyecto a la raíz de `main` y elegir Settings → Pages → Build and deployment → **GitHub Actions**. El workflow ya está incluido.
+El proyecto se publica mediante GitHub Pages desde la rama `main` y el workflow incluido. Las imágenes y páginas derivan de catálogos de terceros; su publicación debe contar con los permisos correspondientes.
 
 ## Reprocesar PDFs
 
@@ -37,7 +35,7 @@ python scripts/refine.py
 
 Las fotografías de los ocho ejemplos contrastados se generan mediante `python scripts/sample_photos.py` después de los otros dos scripts; no sustituyen la revisión de todas las referencias.
 
-Cuando una referencia individual de **bidón de 5 l** y su variante `C` de **caja de 4 bidones de 5 l** correspondan al mismo producto, ejecutar `python scripts/sync_packaging_photos.py` para compartir la fotografía disponible entre ambos formatos y actualizar el JSON, el CSV y las estadísticas.
+Cuando una referencia individual y su variante `C` de caja correspondan al mismo producto, ejecutar `python scripts/sync_packaging_photos.py` para compartir la fotografía disponible entre ambos formatos y actualizar el JSON, el CSV y las estadísticas.
 
 ## Auditoría de calidad del catálogo
 
@@ -59,6 +57,7 @@ python scripts/repair_table_titles.py
 python scripts/repair_table_titles.py --apply
 ```
 
-El informe detallado se guarda en
-`tmp/pdfs/table-title-repair-report.json`. Tras la revisión actual, el índice
-contiene 3.908 referencias candidatas; 20 entradas espurias fueron retiradas.
+`scripts/repair_all_catalog_names.py` completa la auditoría de nombres y
+códigos, repara el espaciado tipográfico de los PDF y fusiona referencias OCR
+con su código real. `scripts/verify_catalog.py` comprueba después la totalidad
+del JSON, CSV, fuentes, imágenes y variantes de caja.
