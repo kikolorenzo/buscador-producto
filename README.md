@@ -4,7 +4,7 @@ Proyecto de revisión creado desde los catálogos **verde, gris, rojo y marrón 
 
 ## Precisión de la información
 
-El índice contiene 3.713 referencias únicas revisadas contra sus páginas de origen. No quedan códigos duplicados, nombres pendientes, títulos débiles ni candidatos extraídos de frases técnicas. El recuento provisional de 3.928 incluía 215 falsos positivos, duplicados o códigos OCR mal formados que ya se han corregido. `data/estadisticas.json` y `INFORME_CONTROL_CALIDAD.md` recogen las cifras actuales.
+El índice contiene 3.644 referencias únicas revisadas contra sus páginas de origen. No quedan códigos duplicados, nombres pendientes, títulos débiles ni candidatos extraídos de frases técnicas. El recuento provisional de 3.928 incluía 284 falsos positivos, duplicados o códigos OCR mal formados que ya se han corregido. `data/estadisticas.json` y `INFORME_CONTROL_CALIDAD.md` recogen las cifras actuales.
 
 Las imágenes en `paginas/` son previsualizaciones de las páginas completas y permiten comprobar visualmente cada referencia. Cuando no existe una fotografía individual asociada, la ficha conserva el acceso a esa página.
 
@@ -33,9 +33,14 @@ python scripts/refine.py
 
 `build_catalog.py` regenera un índice provisional; `refine.py` añade ejemplos contrastados y previsualizaciones. Las correcciones y el control de calidad deben ampliarse antes del uso operativo. Los archivos PDF originales **no están incluidos en el ZIP** para evitar redistribuirlos involuntariamente.
 
-Las fotografías de los ocho ejemplos contrastados se generan mediante `python scripts/sample_photos.py` después de los otros dos scripts; no sustituyen la revisión de todas las referencias.
+`scripts/enrich_product_photos.py` amplía la cobertura con asociaciones trazables: ficha o archivo oficial con coincidencia exacta de SKU, imagen incrustada junto al código en el PDF y recortes oficiales revisados manualmente. Rechaza fotografías genéricas de familia, códigos reutilizados, degradados, máscaras y recortes ambiguos. También comparte la foto entre una referencia individual y su variante `C` cuando son el mismo artículo en distinta presentación.
 
-Cuando una referencia individual y su variante `C` de caja correspondan al mismo producto, ejecutar `python scripts/sync_packaging_photos.py` para compartir la fotografía disponible entre ambos formatos y actualizar el JSON, el CSV y las estadísticas.
+```bash
+python scripts/enrich_product_photos.py --apply
+python scripts/verify_catalog.py
+```
+
+La cobertura actual es de 2.182 referencias (59,88 %). Las 1.462 restantes conservan la página de origen marcada, pero no reciben una fotografía individual si las fuentes no permiten identificarla con seguridad.
 
 ## Auditoría de calidad del catálogo
 

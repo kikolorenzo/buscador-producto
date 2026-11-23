@@ -4,14 +4,14 @@
   "referencias_unicas": 3644,
   "coincidencias": 5930,
   "multiples_catalogos": 974,
-  "con_imagen": 1484,
+  "con_imagen": 2182,
   "sin_nombre": 0,
   "conflictos_potenciales": 5,
   "ejemplos_verificados": 35,
   "referencias_con_conflicto_detectado": 5,
   "paginas_con_vista_previa": 650,
   "referencias_con_fotografia_contrastada": 8,
-  "candidatos_con_imagen": 1484,
+  "candidatos_con_imagen": 2182,
   "recortes_asociados_actuales": 1494,
   "nota": "Índice auditado contra las páginas de origen; verificación integral superada",
   "titulos_revisados_fuente_oficial": 1274,
@@ -26,5 +26,9 @@
   "referencias_candidatas_originales": 3928,
   "referencias_espurias_o_duplicadas_corregidas": 284,
   "descripciones_fuente_oficial": 1147,
-  "descripciones_conservadoras": 2484
+  "descripciones_conservadoras": 2484,
+  "referencias_sin_imagen_individual_disponible": 1462,
+  "cobertura_fotografica_porcentaje": 59.88,
+  "imagenes_web_oficial": 1698,
+  "imagenes_catalogo_asociadas_por_codigo": 484
 }

@@ -13,6 +13,7 @@ import fitz
 
 import audit_catalog_quality as audit
 import audit_complete_product_data as complete
+import enrich_product_photos as photos
 
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -152,6 +153,33 @@ def verify() -> dict:
         row["codigo"] for row in rows
         if row.get("imagen_principal") and not (ROOT / row["imagen_principal"]).is_file()
     )
+    missing_secondary_image_files = sorted({
+        row["codigo"] for row in rows for image in row.get("imagenes", [])
+        if image.get("ruta") and not (ROOT / image["ruta"]).is_file()
+    })
+    principal_not_in_gallery = sorted(
+        row["codigo"] for row in rows
+        if row.get("imagen_principal")
+        and row["imagen_principal"] not in {image.get("ruta") for image in row.get("imagenes", [])}
+    )
+    unverified_active_photos = sorted(
+        row["codigo"] for row in rows
+        if row.get("imagen_principal") and row.get("foto_verificada") is not True
+    )
+    rejected_photos_still_active = sorted(
+        row["codigo"] for row in rows
+        if (
+            row["codigo"] in photos.CATALOG_IMAGE_EXCLUSIONS
+            and str(row.get("imagen_principal") or "").startswith("assets/catalogo/")
+        ) or (
+            row["codigo"] in photos.OFFICIAL_IMAGE_EXCLUSIONS
+            and str(row.get("imagen_principal") or "").startswith("assets/official/")
+        ) or any(
+            image.get("ruta") == row.get("imagen_principal")
+            and image.get("url_original") in photos.AMBIGUOUS_OFFICIAL_IMAGE_URLS
+            for image in row.get("imagenes", [])
+        )
+    )
 
     pair_mismatches: list[str] = []
     pair_counts = Counter()
@@ -232,6 +260,10 @@ def verify() -> dict:
         "descripciones_con_nombre_ocr_antiguo": stale_catalog_descriptions,
         "referencias_sin_fuente": missing_sources,
         "imagenes_no_encontradas": missing_image_files,
+        "imagenes_secundarias_no_encontradas": missing_secondary_image_files,
+        "imagen_principal_ausente_de_galeria": principal_not_in_gallery,
+        "fotografias_activas_sin_verificar": unverified_active_photos,
+        "fotografias_rechazadas_todavia_activas": rejected_photos_still_active,
         "pares_unidad_caja_con_imagen_faltante_o_distinta": pair_mismatches,
         "titulos_contrastados_incorrectos": sorted(set(exact_title_errors)),
         "pseudocodigos_o_codigos_ocr_antiguos_presentes": old_codes_present,
@@ -241,6 +273,9 @@ def verify() -> dict:
         "diferencia_json_csv": csv_mismatches if codes == [row["codigo"] for row in csv_rows] else ["Orden o códigos distintos", *csv_mismatches],
         "contador_total_incorrecto": [] if stats.get("referencias_unicas") == len(rows) else [stats.get("referencias_unicas"), len(rows)],
         "contador_imagenes_incorrecto": [] if stats.get("candidatos_con_imagen") == image_count else [stats.get("candidatos_con_imagen"), image_count],
+        "porcentaje_cobertura_incorrecto": [] if stats.get("cobertura_fotografica_porcentaje") == round(image_count / len(rows) * 100, 2) else [stats.get("cobertura_fotografica_porcentaje"), round(image_count / len(rows) * 100, 2)],
+        "contador_imagenes_oficiales_incorrecto": [] if stats.get("imagenes_web_oficial") == sum(str(row.get("imagen_principal") or "").startswith("assets/official/") for row in rows) else [stats.get("imagenes_web_oficial")],
+        "contador_imagenes_catalogo_incorrecto": [] if stats.get("imagenes_catalogo_asociadas_por_codigo") == sum(str(row.get("imagen_principal") or "").startswith("assets/catalogo/") for row in rows) else [stats.get("imagenes_catalogo_asociadas_por_codigo")],
         "contador_titulos_oficiales_incorrecto": [] if stats.get("titulos_revisados_fuente_oficial") == sum(row.get("titulo_fuente") == "web_oficial" for row in rows) else [stats.get("titulos_revisados_fuente_oficial")],
         "codigos_sin_evidencia_en_fuente": codes_without_evidence,
     }
