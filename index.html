@@ -178,6 +178,7 @@ main{
 }
 .product h2{color:#20264b}
 .details-btn{
+ margin-left:auto;
  border:0;
  border-radius:10px;
  background:#293ead;
@@ -276,7 +277,6 @@ function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function norm(v){return String(v??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
 function codeNorm(v){return norm(v).replace(/[^a-z0-9]/g,'');}
 function isGood(p){return ['revisado_fuente_oficial','revisado_catalogo','verificado_muestra'].includes(p.estado);}
-function statusName(p){return p.estado==='revisado_fuente_oficial'?'Información oficial':p.estado==='revisado_catalogo'?'Revisado en catálogo':p.estado==='verificado_muestra'?'Revisado':p.estado==='conflicto'?'Código con conflicto':'Pendiente de revisión';}
 function path(s){const value=String(s||'');return /^https?:\/\//i.test(value)?value:'./'+value.replace(/^\.?\//,'');}
 const cats=[['todos','Todos'],['verde','Verde · Químicos'],['gris','Gris · Útiles'],['rojo','Rojo · Maquinaria'],['marron','Marrón · Complementos']];
 function drawFilters(){$('filters').innerHTML=cats.map(([id,name])=>`<button class="${catalog===id?'active':''}" type="button" data-cat="${id}" aria-pressed="${catalog===id}">${esc(name)}</button>`).join('');$('filters').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{catalog=b.dataset.cat;page=0;drawFilters();refresh();}));}
@@ -287,7 +287,7 @@ function render(){
  $('count').innerHTML=`${total.toLocaleString('es-ES')} referencias <small>· ${products.length.toLocaleString('es-ES')} en el índice</small>`;
  $('results').innerHTML=total?filtered.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE).map(p=>{
   const image=p.imagen_principal?`<img loading="lazy" src="${esc(path(p.imagen_principal))}" alt="Fotografía del artículo ${esc(p.codigo)}" onerror="this.parentElement.innerHTML='📦'"/>`:`<span class="placeholder" aria-hidden="true">▣</span>`;
-  return `<article class="product"><div class="thumb">${image}</div><div class="product-body"><span class="code">${esc(p.codigo)}</span><h2>${esc(p.nombre_propuesto)}</h2><div class="catalogs">${p.catalogos.map(c=>c[0].toUpperCase()+c.slice(1)).join(' · ')}</div><div class="row-bottom"><span class="status ${isGood(p)?'good':p.estado==='conflicto'?'error':''}">${esc(statusName(p))}</span><button class="details-btn" data-code="${esc(p.codigo)}" type="button">Ver ficha</button></div></div></article>`;
+  return `<article class="product"><div class="thumb">${image}</div><div class="product-body"><span class="code">${esc(p.codigo)}</span><h2>${esc(p.nombre_propuesto)}</h2><div class="catalogs">${p.catalogos.map(c=>c[0].toUpperCase()+c.slice(1)).join(' · ')}</div><div class="row-bottom"><button class="details-btn" data-code="${esc(p.codigo)}" type="button">Ver ficha</button></div></div></article>`;
  }).join(''):'<div class="empty"><strong>No se encontraron coincidencias.</strong><p>Prueba un código parcial o palabras distintas.</p></div>';
  $('results').querySelectorAll('[data-code]').forEach(b=>b.addEventListener('click',()=>openDetail(b.dataset.code)));
  $('pager').innerHTML=total>PAGE_SIZE?`<button id="prev" ${page===0?'disabled':''}>← Anterior</button><span>${page+1} / ${count}</span><button id="next" ${page===count-1?'disabled':''}>Siguiente →</button>`:'';
