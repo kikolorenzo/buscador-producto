@@ -1,7 +1,7 @@
 {
   "paginas": 650,
   "imagenes": 1470,
-  "referencias_unicas": 3911,
+  "referencias_unicas": 3908,
   "coincidencias": 5930,
   "multiples_catalogos": 974,
   "con_imagen": 1389,
@@ -18,7 +18,8 @@
   "titulos_revisados_catalogo_pdf": 157,
   "descripciones_extraidas_catalogo": 0,
   "fuentes_con_marcador": 5495,
-  "titulos_revisados_tabla_catalogo": 917,
-  "referencias_espurias_eliminadas": 17,
-  "titulos_pendientes": 230
+  "titulos_revisados_tabla_catalogo": 920,
+  "referencias_espurias_eliminadas": 20,
+  "titulos_pendientes": 0,
+  "titulos_categoria_catalogo_pdf": 224
 }

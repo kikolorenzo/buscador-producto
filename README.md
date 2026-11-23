@@ -61,4 +61,4 @@ python scripts/repair_table_titles.py --apply
 
 El informe detallado se guarda en
 `tmp/pdfs/table-title-repair-report.json`. Tras la revisión actual, el índice
-contiene 3.911 referencias candidatas; 17 entradas espurias fueron retiradas.
+contiene 3.908 referencias candidatas; 20 entradas espurias fueron retiradas.

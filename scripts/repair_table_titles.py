@@ -28,7 +28,8 @@ REPORT_PATH = TMP / "table-title-repair-report.json"
 COLORS = ("verde", "gris", "rojo", "marron")
 PDF_PATHS = {color: TMP / f"meprolim_revista_{color}_2024.pdf" for color in COLORS}
 PROTECTED_TITLE_SOURCES = {"web_oficial", "catalogo_pdf_revisado", "manual"}
-SPURIOUS_CODES = {"BIW1094", "LAX100", "LAX500"}
+SPURIOUS_CODES = {"BIW1094", "LAX100", "LAX500", "DE100A", "DE2003", "DE250M"}
+KNOWN_SPURIOUS_TOTAL = 14 + len(SPURIOUS_CODES)  # 14 falsos códigos AJA + explícitos
 PRODUCT_HEADER_KEYS = {"PRODUCTO", "DESCRIPCION", "ARTICULO", "TIPOCOLOR", "MODELO"}
 PAGE_PREFIXES = {"BOLSASPARACARROS": "Bolsa para carro"}
 
@@ -125,6 +126,9 @@ MANUAL_TITLES = {
     "AM0027C": ("Caja de 10 discos decapantes SPP de 457 mm", "verde", 148),
     "AM0028": ("Disco decapante SPP de 508 mm", "verde", 148),
     "AM0028C": ("Caja de 10 discos decapantes SPP de 508 mm", "verde", 148),
+    "BX4023": ("SUCIWAX CS · Cristalizador base", "verde", 43),
+    "CR0031": ("Dispensador Mini Jumbo para papel de hasta Ø 25 cm", "marron", 16),
+    "FY0033": ("Rodales de 9 cm, paquete de 250 unidades", "verde", 141),
 }
 
 TITLE_FIXES = {
@@ -378,6 +382,118 @@ def with_joined_codes(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return enriched
 
 
+def top_page_title(page: pdfplumber.page.Page) -> str:
+    """Reconstruye el título superior, que en los PDF viene letra a letra."""
+    words = [
+        word
+        for word in page.extract_words(extra_attrs=["size"])
+        if 30 <= float(word["top"]) <= 88
+        and 115 <= float(word["x0"]) <= 465
+        and float(word.get("size", 0)) >= 9
+    ]
+    lines: list[list[dict[str, Any]]] = []
+    for word in sorted(words, key=lambda item: (float(item["top"]), float(item["x0"]))):
+        line = next(
+            (candidate for candidate in reversed(lines[-3:]) if abs(float(candidate[0]["top"]) - float(word["top"])) <= 2),
+            None,
+        )
+        if line is None:
+            lines.append([word])
+        else:
+            line.append(word)
+    text_lines = []
+    for line in lines:
+        line.sort(key=lambda item: float(item["x0"]))
+        chunks = [line[0]["text"]]
+        for previous, word in zip(line, line[1:]):
+            separator = " " if float(word["x0"]) - float(previous["x1"]) > 6 else ""
+            chunks.append(separator + word["text"])
+        text_lines.append("".join(chunks))
+    value = " ".join(text_lines)
+    replacements = {
+        "PL�STICO": "PLÁSTICO",
+        "PL�STICAS": "PLÁSTICAS",
+        "QU�MICOS": "QUÍMICOS",
+        "M�QUINAS": "MÁQUINAS",
+        "MEDICI�N": "MEDICIÓN",
+        "ASPIRACI�N": "ASPIRACIÓN",
+        "RECOGIDA": "RECOGIDA",
+    }
+    for old, new in replacements.items():
+        value = value.replace(old, new)
+    value = value.replace("�", "")
+    value = value.replace("lpara", "l para").replace("productosespecíficos", "productos específicos")
+    value = audit.format_title(value)
+    value = value.replace("lpara", "l para").replace("productosespecíficos", "productos específicos")
+    value = value.replace("Sistemaecomix", "Sistema Ecomix")
+    singular_starts = {
+        "Contenedores ": "Contenedor ",
+        "Fuentes ": "Fuente ",
+        "Bobinas ": "Bobina ",
+        "Papeleras ": "Papelera ",
+        "Dosificadores ": "Dosificador ",
+        "Guantes ": "Guante ",
+        "Cubos ": "Cubo ",
+        "Vasos ": "Vaso ",
+        "Bolsas ": "Bolsa ",
+        "Discos ": "Disco ",
+        "Carros ": "Carro ",
+        "Accesorios ": "Accesorio ",
+        "Recambios ": "Recambio ",
+    }
+    for plural, singular in singular_starts.items():
+        if value.startswith(plural):
+            value = singular + value[len(plural):]
+            break
+    exact_singular = {
+        "Dosificadores": "Dosificador",
+        "Papeleras": "Papelera",
+        "Accesorios": "Accesorio",
+        "Recambios": "Recambio",
+    }
+    value = exact_singular.get(value, value)
+    return value
+
+
+def category_fallback_title(page_title: str, presentation: str) -> str:
+    presentation = audit.repair_spaced_ocr(presentation)
+    replacements = {
+        "Cuerpob eige": "Cuerpo beige",
+        "Com pleto": "Completo",
+        "Completomarrón": "Completo marrón",
+        "m arrón": "marrón",
+        "tapam arrón": "tapa marrón",
+        "tapamarrón": "tapa marrón",
+        "tapaam arilla": "tapa amarilla",
+        "Prem ium": "Premium",
+        "Premiumamarillo": "Premium amarillo",
+        "A zul": "azul",
+        "Am arillo": "amarillo",
+        "N egros": "negros",
+        "C aja": "Caja",
+        "C artucho": "Cartucho",
+        "bidonesde": "bidones de",
+        "Bidónde": "Bidón de",
+        "parde": "par de",
+        "packsx": "packs x",
+        "m adera": "madera",
+        "m m": "mm",
+        "m l": "ml",
+    }
+    for old, new in replacements.items():
+        presentation = presentation.replace(old, new)
+    presentation = re.sub(r"Completo(?=marrón)", "Completo ", presentation, flags=re.IGNORECASE)
+    presentation = re.sub(r"tapa(?=marrón)", "tapa ", presentation, flags=re.IGNORECASE)
+    presentation = re.sub(r"Premium(?=amarillo)", "Premium ", presentation, flags=re.IGNORECASE)
+    presentation = re.sub(r"^aja\b", "Caja", presentation, flags=re.IGNORECASE)
+    presentation = re.sub(r"^C guantes\b", "Caja de guantes", presentation, flags=re.IGNORECASE)
+    if not page_title:
+        return ""
+    if presentation and comparison_key(presentation) not in comparison_key(page_title):
+        return normalize_title(f"{page_title} - {presentation}")[:150]
+    return normalize_title(page_title)[:150]
+
+
 def extract_known_layout_rows(
     page: pdfplumber.page.Page,
     color: str,
@@ -605,6 +721,7 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
             sources_by_page[(source["catalogo"], int(source["pagina"]))].add(row["codigo"])
 
     evidence: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    page_titles: dict[tuple[str, int], str] = {}
     table_pages = 0
     for color in COLORS:
         path = PDF_PATHS[color]
@@ -620,16 +737,18 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
                         f"Leyendo tablas {color}: {page_index}/{len(page_numbers)}",
                         flush=True,
                     )
+                page = document.pages[page_number - 1]
+                page_titles[(color, page_number)] = top_page_title(page)
                 if (color, page_number) not in TRUSTED_TABLE_PAGES | KNOWN_LAYOUT_PAGES:
                     continue
                 if (color, page_number) in TRUSTED_TABLE_PAGES:
                     page_rows = extract_page_rows(
-                        document.pages[page_number - 1],
+                        page,
                         codes,
                     )
                 else:
                     page_rows = extract_known_layout_rows(
-                        document.pages[page_number - 1],
+                        page,
                         color,
                         page_number,
                         codes,
@@ -684,6 +803,61 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
                 }
             )
 
+    # Último recurso honesto: si no existe un nombre de fila fiable, muestra
+    # la familia exacta impresa en la cabecera de su página y su variante. Se
+    # mantiene el estado pendiente para no presentarlo como validación plena.
+    category_fallback_codes: set[str] = set()
+    for row in rows:
+        if row.get("titulo_fuente") != "categoria_catalogo_pdf":
+            continue
+        fixed = row.get("nombre_propuesto", "")
+        fixed = re.sub(r"Completo(?=marrón)", "Completo ", fixed, flags=re.IGNORECASE)
+        fixed = re.sub(r"tapa(?=marrón)", "tapa ", fixed, flags=re.IGNORECASE)
+        fixed = re.sub(r"Premium(?=amarillo)", "Premium ", fixed, flags=re.IGNORECASE)
+        fixed = fixed.replace("productosespecíficos", "productos específicos")
+        if fixed == row.get("nombre_propuesto"):
+            continue
+        source = (row.get("fuentes") or [{}])[0]
+        if source.get("catalogo") and source.get("pagina"):
+            category_fallback_codes.add(row["codigo"])
+            evidence[row["codigo"]].append(
+                {
+                    "product": fixed,
+                    "presentation": row.get("presentacion_propuesta", ""),
+                    "catalogo": source["catalogo"],
+                    "pagina": int(source["pagina"]),
+                }
+            )
+    for row in rows:
+        if row.get("nombre_propuesto") != "Descripción pendiente de comprobar":
+            continue
+        if evidence.get(row["codigo"]):
+            continue
+        source = next(
+            (
+                item
+                for item in row.get("fuentes", [])
+                if page_titles.get((item["catalogo"], int(item["pagina"])))
+            ),
+            None,
+        )
+        if not source:
+            continue
+        product = category_fallback_title(
+            page_titles[(source["catalogo"], int(source["pagina"]))],
+            row.get("presentacion_propuesta", ""),
+        )
+        if product:
+            category_fallback_codes.add(row["codigo"])
+            evidence[row["codigo"]].append(
+                {
+                    "product": product,
+                    "presentation": row.get("presentacion_propuesta", ""),
+                    "catalogo": source["catalogo"],
+                    "pagina": int(source["pagina"]),
+                }
+            )
+
     changes: list[dict[str, Any]] = []
     conflicts: list[dict[str, Any]] = []
     protected = 0
@@ -723,7 +897,11 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
         if candidate.get("presentation"):
             row["presentacion_propuesta"] = candidate["presentation"]
         row["titulo_fuente"] = "catalogo_pdf_revisado"
-        row["estado"] = "revisado_catalogo"
+        if row["codigo"] in category_fallback_codes:
+            row["titulo_fuente"] = "categoria_catalogo_pdf"
+            row["estado"] = "pendiente_revision"
+        else:
+            row["estado"] = "revisado_catalogo"
         row["texto_busqueda"] = audit.clean_text(
             f"{new_title} {row['codigo']} {candidate.get('presentation', '')} "
             f"{' '.join(row.get('catalogos', []))}"
@@ -738,6 +916,7 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
         "titulos_protegidos": protected,
         "titulos_a_corregir": len(changes),
         "conflictos_no_aplicados": len(conflicts),
+        "titulos_de_categoria_para_pendientes": len(category_fallback_codes),
         "cambios": changes,
         "conflictos": conflicts,
     }
@@ -752,12 +931,15 @@ def analyze(apply_changes: bool) -> dict[str, Any]:
         audit.write_csv(rows)
         stats = json.loads(STATS_PATH.read_text("utf-8"))
         stats["referencias_unicas"] = len(rows)
-        stats["referencias_espurias_eliminadas"] = len(removed_rows)
+        stats["referencias_espurias_eliminadas"] = KNOWN_SPURIOUS_TOTAL
         stats["titulos_pendientes"] = sum(
             row.get("nombre_propuesto") == "Descripción pendiente de comprobar" for row in rows
         )
         stats["titulos_revisados_tabla_catalogo"] = sum(
             row.get("titulo_fuente") == "catalogo_pdf_revisado" for row in rows
+        )
+        stats["titulos_categoria_catalogo_pdf"] = sum(
+            row.get("titulo_fuente") == "categoria_catalogo_pdf" for row in rows
         )
         STATS_PATH.write_text(
             json.dumps(stats, ensure_ascii=False, indent=2), encoding="utf-8"
