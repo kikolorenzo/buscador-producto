@@ -40,6 +40,16 @@ GENERIC_TITLE_PATTERNS = (
     r"\b(?:accesorios opcionales|medidas \(cm\)|potencia \(w\)|solicite presupuesto)\s*$",
 )
 
+PRESENTATION_FRAGMENT_PATTERNS = (
+    r"(?<=\d)\s+(?=\d)",
+    r"\b[A-UW-ZÁÉÍÓÚÜÑ]\s+[a-záéíóúüñ]{3,}\b",
+    r"\b(?:[A-ZÁÉÍÓÚÜÑ]\s+){2,}[A-ZÁÉÍÓÚÜÑ0-9]\b",
+    r"(?i)\b(?:m\s+monodosis|u\s+niversal|g\s+ofrado|m\s+orado|n\s+ature|c\s+[íi]trico)\b",
+    r"(?i)\b(?:crem\s+allera|perform\s+ance|lim\s+[óo]n|jazm\s+[íi]n|sop\s+orte|lam\s+ela|segm\s+ento|lim\s+pia|carbonp\s+ole)\b",
+    r"(?i)\b(?:presen\s*tac|capac\s*id|li-io\s+n|rbitiz\s+er|u\s+d\s+s)\b",
+    r"\b(?:C\s+F|D\s+A|D\s+D|TC\s+K|G\s+S)\s*\d",
+)
+
 # CX0047 y CX0047C no son unidad/caja: el catálogo muestra dos cubos
 # diferentes (sin escurridor y con escurridor), cada uno con su propia foto.
 ALLOWED_DISTINCT_VARIANT_IMAGES = {"CX0047/CX0047C"}
@@ -121,6 +131,13 @@ def verify() -> dict:
     double_spaces = sorted(
         row["codigo"] for row in rows
         if any(re.search(r"\s{2,}", str(row.get(field, ""))) for field in ("nombre_propuesto", "descripcion", "presentacion_propuesta"))
+    )
+    fragmented_presentations = sorted(
+        row["codigo"] for row in rows
+        if any(
+            re.search(pattern, str(row.get("presentacion_propuesta", "")))
+            for pattern in PRESENTATION_FRAGMENT_PATTERNS
+        )
     )
     spec_only_titles = sorted(row["codigo"] for row in rows if is_spec_only_title(row.get("nombre_propuesto", "")))
     generic_titles = sorted(
@@ -211,6 +228,14 @@ def verify() -> dict:
         code for code, title in pva_expected.items()
         if code not in by_code or by_code[code].get("nombre_propuesto") != title
     )
+    exact_presentation_errors = sorted(
+        code for code, value in complete.PRESENTATION_OCR_FIXES.items()
+        if code not in by_code or by_code[code].get("presentacion_propuesta") != value
+    )
+    exact_ocr_title_errors = sorted(
+        code for code, value in complete.TITLE_OCR_FIXES.items()
+        if code not in by_code or by_code[code].get("nombre_propuesto") != value
+    )
     if by_code.get("FR0096", {}).get("nombre_propuesto") != "Gel de manos DF SAN sin perfume, bidón de 5 kg":
         exact_title_errors.append("FR0096")
     for code, (title, _presentation) in {**complete.PAGE_121_PRODUCTS, **complete.PAGE_122_PRODUCTS}.items():
@@ -252,6 +277,7 @@ def verify() -> dict:
         "texto_con_caracter_roto": broken_text,
         "texto_con_fragmentos_ocr": fragmented_text,
         "texto_con_espacios_dobles": double_spaces,
+        "presentaciones_con_fragmentos_ocr": fragmented_presentations,
         "titulos_solo_con_medida_o_color": spec_only_titles,
         "titulos_genericos_o_ambiguos": generic_titles,
         "titulos_que_empiezan_en_minuscula": lowercase_titles,
@@ -266,6 +292,8 @@ def verify() -> dict:
         "fotografias_rechazadas_todavia_activas": rejected_photos_still_active,
         "pares_unidad_caja_con_imagen_faltante_o_distinta": pair_mismatches,
         "titulos_contrastados_incorrectos": sorted(set(exact_title_errors)),
+        "presentaciones_ocr_contrastadas_incorrectas": exact_presentation_errors,
+        "titulos_ocr_contrastados_incorrectos": exact_ocr_title_errors,
         "pseudocodigos_o_codigos_ocr_antiguos_presentes": old_codes_present,
         "codigos_ocr_corregidos_ausentes": renamed_codes_missing,
         "conflictos_de_catalogo_sin_documentar": conflicts_incomplete,
@@ -276,6 +304,9 @@ def verify() -> dict:
         "porcentaje_cobertura_incorrecto": [] if stats.get("cobertura_fotografica_porcentaje") == round(image_count / len(rows) * 100, 2) else [stats.get("cobertura_fotografica_porcentaje"), round(image_count / len(rows) * 100, 2)],
         "contador_imagenes_oficiales_incorrecto": [] if stats.get("imagenes_web_oficial") == sum(str(row.get("imagen_principal") or "").startswith("assets/official/") for row in rows) else [stats.get("imagenes_web_oficial")],
         "contador_imagenes_catalogo_incorrecto": [] if stats.get("imagenes_catalogo_asociadas_por_codigo") == sum(str(row.get("imagen_principal") or "").startswith("assets/catalogo/") for row in rows) else [stats.get("imagenes_catalogo_asociadas_por_codigo")],
+        "contador_presentaciones_corregidas_incorrecto": [] if stats.get("presentaciones_corregidas_ocr") == len(complete.PRESENTATION_OCR_FIXES) else [stats.get("presentaciones_corregidas_ocr"), len(complete.PRESENTATION_OCR_FIXES)],
+        "contador_presentaciones_fragmentadas_incorrecto": [] if stats.get("presentaciones_con_fragmentos_ocr") == len(fragmented_presentations) else [stats.get("presentaciones_con_fragmentos_ocr"), len(fragmented_presentations)],
+        "contador_titulos_corregidos_por_presentacion_incorrecto": [] if stats.get("titulos_corregidos_por_revision_de_presentacion") == len(complete.TITLE_OCR_FIXES) else [stats.get("titulos_corregidos_por_revision_de_presentacion"), len(complete.TITLE_OCR_FIXES)],
         "contador_titulos_oficiales_incorrecto": [] if stats.get("titulos_revisados_fuente_oficial") == sum(row.get("titulo_fuente") == "web_oficial" for row in rows) else [stats.get("titulos_revisados_fuente_oficial")],
         "codigos_sin_evidencia_en_fuente": codes_without_evidence,
     }

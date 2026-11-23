@@ -14,8 +14,8 @@
   "candidatos_con_imagen": 2182,
   "recortes_asociados_actuales": 1494,
   "nota": "Índice auditado contra las páginas de origen; verificación integral superada",
-  "titulos_revisados_fuente_oficial": 1274,
-  "titulos_revisados_catalogo_pdf": 2370,
+  "titulos_revisados_fuente_oficial": 1273,
+  "titulos_revisados_catalogo_pdf": 2371,
   "descripciones_extraidas_catalogo": 0,
   "fuentes_con_marcador": 5495,
   "titulos_revisados_tabla_catalogo": 920,
@@ -25,10 +25,13 @@
   "codigos_sin_evidencia_en_fuente": 0,
   "referencias_candidatas_originales": 3928,
   "referencias_espurias_o_duplicadas_corregidas": 284,
-  "descripciones_fuente_oficial": 1147,
-  "descripciones_conservadoras": 2484,
+  "descripciones_fuente_oficial": 1146,
+  "descripciones_conservadoras": 2485,
   "referencias_sin_imagen_individual_disponible": 1462,
   "cobertura_fotografica_porcentaje": 59.88,
   "imagenes_web_oficial": 1698,
-  "imagenes_catalogo_asociadas_por_codigo": 484
+  "imagenes_catalogo_asociadas_por_codigo": 484,
+  "presentaciones_corregidas_ocr": 77,
+  "presentaciones_con_fragmentos_ocr": 0,
+  "titulos_corregidos_por_revision_de_presentacion": 13
 }

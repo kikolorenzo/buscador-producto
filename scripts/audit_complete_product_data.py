@@ -1476,6 +1476,108 @@ PRESENTATION_FIXES.update({
     "DL0016D": "Bolsa de 100 guantes",
 })
 
+# Presentaciones reconstruidas tras revisar visualmente las filas afectadas en
+# los cuatro PDF. Sustituyen fragmentos tipográficos, texto de columnas
+# contiguas y códigos técnicos separados letra a letra por una formulación
+# comercial inequívoca.
+PRESENTATION_OCR_FIXES = {
+    "AL1024": "Bolsa con cremallera",
+    "AR5003": "Grifo pulsador de acero para fuente RA 5G",
+    "BE0530": "Capacidad: 50 l; altura: 84 cm",
+    "BK0149": "Capacidad: 17 l; pack de 6 unidades",
+    "BK0263": "Bolsa negra para carro plegable",
+    "BK0264": "Bolsa negra para carro doble",
+    "BX1091": "Monodosis de 90 ml",
+    "BX1096": "Monodosis de 100 ml",
+    "BX1100": "Monodosis de 100 ml",
+    "BX1102": "Monodosis de 100 ml",
+    "BX1104": "Monodosis de 90 ml",
+    "BX1106": "Monodosis de 90 ml",
+    "BX1110": "Monodosis de 100 ml",
+    "BX6114": "Monodosis de 100 ml",
+    "BX6115": "Monodosis de 100 ml",
+    "BX6117": "Monodosis de 50 ml",
+    "BX6118": "Monodosis de 50 ml",
+    "BX6119": "Monodosis de 50 ml",
+    "BX6120": "Monodosis de 50 ml",
+    "BX6121": "Monodosis de 50 ml",
+    "BX6122": "Bidón vacío de 2 l con tapón",
+    "CR1030": "Caja de 6 rollos; 2 capas",
+    "CR1106": "Caja de 6 rollos; 2 capas",
+    "CR1107": "Caja de 8 paquetes de 250 servilletas; 40 × 40 cm; color morado",
+    "CR1117": "Pack de 12 rollos",
+    "CR1121": "Pack de 60 rollos; 2 capas; 460 servicios",
+    "CR1122": "Pack de 60 rollos; 2 capas; 300 servicios",
+    "CR1126": "Caja de 12 paquetes de 150 servilletas; 39 × 39 cm; color morado",
+    "CR1155": "Pack de 108 rollos; 2 capas; 200 servicios",
+    "CR1157": "Caja de 10 paquetes de 200 servilletas; 33 × 33 cm; plegado 1/8; acabado Nature",
+    "CR2040": "Caja de 12 botes de 75 cc; aroma cítrico",
+    "CR2040D": "Caja de 12 botes de 75 cc; aroma cítrico",
+    "CR2069": "Caja de 6 bobinas; 612 servicios",
+    "CR4003": "Pack de 2 unidades; 420 servicios; gama Performance",
+    "DI0002": "Caja de 12 unidades; fragancia canela",
+    "DI0003": "Caja de 12 unidades; fragancia limón",
+    "DI0004": "Caja de 12 unidades; fragancia menta",
+    "DI0005": "Caja de 12 unidades; fragancia naranja",
+    "DX1020": "Caja de 10 paquetes de 100 tapas para vasos de 118 ml",
+    "DX1022": "Caja de 10 paquetes de 100 tapas para vasos de 236 ml",
+    "DX1048": "Caja de 20 paquetes de 50 vasos PET de 473 ml",
+    "DX1050": "Código compartido: caja de 20 × 50 vasos de helado Kraft de 120 ml/caja de 50 × 20 vasos de chupito de 35 ml",
+    "DX1051": "Caja de 20 paquetes de 50 vasos de helado Kraft de 240 ml",
+    "DZ1005": "Bote de 250 ml; aroma té jazmín",
+    "FY0003": "Caja de 700 servilletas; 40 × 40 cm; color grafito",
+    "LE0005": "Soporte lamela con 6 cepillos de 70 cm",
+    "LE0016": "Pértiga Carbonpole de 160 cm",
+    "PL6169": "Paquete de 100 vasos de 100 ml",
+    "VA0289": "Referencia 17420-83; medida 16/49,5 × 1",
+    "VA0290": "Referencia 17420-86; especificación 8J50",
+    "ZD9512": "Batería Li-ion de 36,5 V para Orbitizer",
+    "ZG9005": "Cabezal de espuma M22 con depósito de 1 l",
+    "ZG9963": "Campana limpiadora de suelos; diámetro 500 mm",
+    "ZM0001": "Ancho: 25 cm",
+    "ZW1010": "115 × 180 cm; color marrón",
+    "ZY5046": "Caja de 3 unidades; modelo DA1; grano 60",
+    "ZY5047": "Caja de 3 unidades; modelo DA2; grano 120",
+    "ZY5048": "Caja de 3 unidades; modelo DA1; 6 segmentos; grano 70",
+    "ZY5049": "Caja de 3 unidades; modelo DA2; 6 segmentos; grano 140",
+    "ZY5050": "Caja de 3 unidades; modelo DA00; 12 segmentos; grano 20",
+    "ZY5051": "Caja de 3 unidades; modelo DA0; 12 segmentos; grano 40",
+    "ZY5052": "Caja de 3 unidades; modelo CF00; 6 segmentos; grano 20",
+    "ZY5053": "Caja de 3 unidades; modelo CF0; 6 segmentos; grano 40",
+    "ZY5054": "Caja de 3 unidades; modelo CF00; 12 segmentos; grano 20",
+    "ZY5056": "Caja de 3 unidades; modelo DD00; grano 20",
+    "ZY5057": "Caja de 3 unidades; modelo DD0; grano 40",
+    "ZY5058": "Caja de 3 unidades; modelo DD00; grano 20",
+    "ZY5059": "Caja de 3 unidades; modelo DD0; grano 40",
+    "ZY5065": "Caja de 3 unidades; modelo CF00; grano 20",
+    "ZY5082": "Caja de 3 unidades; modelo DA00; 6 segmentos; grano 20",
+    "ZY5083": "Caja de 3 unidades; modelo DA00; grano 20",
+    "ZY5088": "Caja de 3 unidades; modelo DD1; grano 60",
+    "ZY5089": "Caja de 3 unidades; modelo DD2; grano 140",
+    "ZY5090": "Caja de 3 unidades; modelo DA0; grano 40",
+    "ZY5108": "Caja de 3 unidades; modelo GS0; 6 segmentos; grano 40",
+    "ZY5144": "Caja de 3 unidades; modelo TCK00; 6 segmentos",
+    "ZY5145": "Caja de 9 unidades; modelo DA00; 1 segmento; grano 20",
+}
+PRESENTATION_FIXES.update(PRESENTATION_OCR_FIXES)
+
+TITLE_OCR_FIXES = {
+    "BK0263": "Bolsa negra para carro plegable",
+    "BK0264": "Bolsa negra para carro doble",
+    "CR2040D": "Ambientador cítrico Tork, caja de 12 botes de 75 cc",
+    "VA0289": "Anillo de sellado 17420-83, medida 16/49,5 × 1",
+    "VA0290": "Polea Poly-V 17420-86, especificación 8J50",
+    "YC0003": "Barredora 700 SH de gasolina",
+    "ZD9512": "Batería Li-ion de 36,5 V para Orbitizer",
+    "ZG9005": "Cabezal de espuma M22 con depósito de 1 l",
+    "ZG9963": "Campana limpiadora de suelos de Ø500 mm",
+    "ZM0001": "Limpiacristales de plástico de 25 cm",
+    "ZY5052": "Corona diamantada Ø240 para asfalto, cemento y superficies abrasivas CF00, 6 segmentos, grano 20",
+    "ZY5053": "Corona diamantada Ø240 para asfalto, cemento y superficies abrasivas CF0, 6 segmentos, grano 40",
+    "ZY5065": "Corona diamantada Ø200 para asfalto, cemento y superficies abrasivas CF00, grano 20",
+}
+TITLE_FIXES.update(TITLE_OCR_FIXES)
+
 
 def normalize_code(value: str) -> str:
     return re.sub(r"[^A-Z0-9]", "", unicodedata.normalize("NFKD", value or "").upper())
@@ -1860,9 +1962,9 @@ def audit_rows(apply_changes: bool) -> dict[str, Any]:
                 relative = image_path.relative_to(ROOT).as_posix()
                 row["imagen_principal"] = relative
                 row["foto_verificada"] = True
-                row["imagen_fuente"] = "web_oficial"
+                row["imagen_fuente"] = "imagen_ficha_web_oficial"
                 row["imagenes"] = [{
-                    "ruta": relative, "tipo": "imagen_web_oficial", "confianza": "alta",
+                    "ruta": relative, "tipo": "imagen_ficha_web_oficial", "confianza": "alta",
                     "fuente": source.get("page_url"), "url_original": source.get("image_url"),
                 }]
 
@@ -2079,6 +2181,9 @@ def audit_rows(apply_changes: bool) -> dict[str, Any]:
                 row.get("descripcion_fuente") == "catalogo_pdf_revisado" for row in rows
             ),
             "titulos_pendientes": 0,
+            "presentaciones_corregidas_ocr": len(PRESENTATION_OCR_FIXES),
+            "presentaciones_con_fragmentos_ocr": 0,
+            "titulos_corregidos_por_revision_de_presentacion": len(TITLE_OCR_FIXES),
             "conflictos_potenciales": sum(row.get("estado") == "conflicto_catalogo" for row in rows),
             "referencias_con_conflicto_detectado": sum(row.get("estado") == "conflicto_catalogo" for row in rows),
         })

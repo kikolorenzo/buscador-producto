@@ -8,6 +8,7 @@ Auditoría final ejecutada sobre los cuatro catálogos y el índice publicado:
 - 2.182 referencias con fotografía asociada (59,88 %): 1.698 usan un activo web oficial y 484 una imagen incrustada en el catálogo vinculada al código.
 - 175 pares de referencia individual y variante `C`: 125 comparten exactamente la misma imagen, 49 carecen de imagen en ambos formatos y una pareja corresponde a productos distintos con fotografía propia.
 - Se revisó visualmente el 100 % de las 489 nuevas imágenes candidatas extraídas de los PDF y las 310 candidatas procedentes de la web oficial. Se descartaron degradados, máscaras, recortes parciales y fotografías genéricas que no identificaban la variante.
+- Se reconstruyeron 77 presentaciones afectadas por letras o cifras separadas, códigos técnicos fragmentados y texto arrastrado desde filas contiguas. La misma revisión corrigió 13 títulos relacionados; el verificador no detecta ya fragmentos OCR en ninguna presentación.
 - JSON y CSV contienen las mismas referencias y en el mismo orden.
 - Todas las imágenes referenciadas existen en el proyecto.
 
