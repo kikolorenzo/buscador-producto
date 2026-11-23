@@ -13,6 +13,12 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 JSON_PATH = ROOT / "data" / "articulos.json"
 CSV_PATH = ROOT / "data" / "articulos.csv"
 STATS_PATH = ROOT / "data" / "estadisticas.json"
+EXCLUDED_BASE_CODES = {
+    # La web actual reutiliza estos códigos para productos distintos de los
+    # impresos en los catálogos. No se debe propagar su fotografía oficial.
+    "BC1008", "BX1064", "BX3032", "BX4009", "BX4015", "BX9010",
+    "DZ0008", "FR0029", "FR0104", "FR0124", "FS0030", "ZB1016", "ZG0013",
+}
 
 
 def product_text(row: dict) -> str:
@@ -27,7 +33,10 @@ def is_box(row: dict) -> bool:
     # En este índice el sufijo C representa la presentación de caja. Algunos
     # textos del PDF solo indican «20 packs» o «4 bidones» y omiten la palabra
     # caja, por lo que la relación de códigos es la señal canónica.
-    return True
+    text = product_text(row).lower()
+    if re.search(r"\b(?:con|sin)\s+escurridor\b", text):
+        return False
+    return bool(re.search(r"\b(?:caja|pack|paquete|\d+\s+bidones|\d+\s+botes)\b", text))
 
 
 rows = json.loads(JSON_PATH.read_text("utf-8"))
@@ -35,6 +44,8 @@ by_code = {row["codigo"]: row for row in rows}
 updated: list[tuple[str, str, str]] = []
 
 for individual in rows:
+    if individual["codigo"] in EXCLUDED_BASE_CODES:
+        continue
     box = by_code.get(individual["codigo"] + "C")
     # El código base es la unidad y el sufijo C su caja. Algunos títulos
     # heredados perdieron la palabra «bidón», por lo que la caja es la señal
