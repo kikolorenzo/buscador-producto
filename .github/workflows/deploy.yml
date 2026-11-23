@@ -1,5 +1,8 @@
 name: Publicar buscador en GitHub Pages
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 permissions:
   contents: read
